@@ -137,7 +137,6 @@ a.current::after {
 .nav-link:hover,
 .nav-link:focus {
   color: var(--accent-color);
-
 }
 
 .header-contacts a:hover,
@@ -245,23 +244,49 @@ a.current::after {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
+  /* pointer-events: none; */
+  opacity: 1;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.banner-backdrop.is-hidden{
+.banner-backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 
-.banner-modal{
+.banner-backdrop.is-hidden .banner-modal{
+  transform: translate(-50%,-50%) scale(1.2);
+  opacity: 0;
+}
+
+.banner-modal {
+  padding: 8px;
+  display: inline-flex;
+  flex-direction: row-reverse;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
 
   min-width: 528px;
   min-height: 581px;
   background-color: #ffffff;
+
+  transform: translate(-50%,-50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-font-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
 /*------------------------FEATURES-----------------------*/
@@ -455,7 +480,7 @@ a.current::after {
   color: #afb1b8;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-icon {
@@ -606,7 +631,7 @@ a.current::after {
   color: var(--primary-font-color);
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-link-footer:hover,
@@ -662,7 +687,7 @@ a.current::after {
   padding: 6px 22px;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-button:focus,
@@ -692,16 +717,16 @@ a.current::after {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.main-list-overlay{
+.main-list-overlay {
   position: relative;
   overflow: hidden;
 }
 
-.main-list-overlay-text{
+.main-list-overlay-text {
   position: absolute;
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
   left: 0;
   padding: 63px 24px;
   align-self: center;
@@ -716,7 +741,7 @@ a.current::after {
   opacity: 0;
 
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  transform 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-list-link:hover .main-list-overlay-text {

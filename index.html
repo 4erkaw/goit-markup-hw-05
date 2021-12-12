@@ -60,7 +60,7 @@
         <div class="container">
           <h1 class="banner-title">Эффективные решения для вашего бизнеса</h1>
 
-          <button class="banner-button" type="button">Заказать услугу</button>
+          <button class="banner-button" type="button" data-modal-open>Заказать услугу</button>
         </div>
       </section>
 
@@ -506,9 +506,14 @@
       </div>
     </footer>
 
-    <div class="banner-backdrop is-hidden">
-      <div class="banner-modal"></div>
+    <div class="banner-backdrop is-hidden" data-modal>
+      <div class="banner-modal"><button class="modal-button" type="button" data-modal-close><svg class="modal-closer" width="11px" height="11px">
+        <use href="./img/icons.svg#icon-vector"></use></button>
+      </svg>
+     </div>
     </div>
     
+    <script src="./js/modal.js"></script>
+
   </body>
 </html>
